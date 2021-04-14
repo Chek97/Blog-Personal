@@ -1,0 +1,11 @@
+.landing-body {
+    background-image: url('../img/background.webp');
+}
+
+.landing-header {
+    padding: 10px 15% 10px 15%;
+}
+
+.landing-header > h1 {
+    font-weight: 700;
+}
