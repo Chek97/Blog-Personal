@@ -12,40 +12,26 @@
         <header>
             <h1>ENTRADAS CREADAS</h1>
         </header>
-        <div>
+        <?php 
+            //si no hay entradas colocar alerta que no hay cartas
+        ?>
+        <div class="alert alert-message m-5 pt-5 pb-5" role="alert">
+            <strong>No hay entradas todavia</strong>
+        </div>
+        <div class="body-entry mb-5">
             <div class="card border-primary mt-3">
-                <div class="card-header">Header</div>
-                <div class="card-body text-primary">
-                    <h5 class="card-title">Primary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card border-primary mt-3">
-                <div class="card-header">Header</div>
-                <div class="card-body text-primary">
-                    <h5 class="card-title">Primary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card border-primary mt-3">
-                <div class="card-header">Header</div>
-                <div class="card-body text-primary">
-                    <h5 class="card-title">Primary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card border-primary mt-3">
-                <div class="card-header">Header</div>
-                <div class="card-body text-primary">
-                    <h5 class="card-title">Primary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                </div>
-            </div>
-            <div class="card border-primary mb-5 mt-3">
-                <div class="card-header">Header</div>
-                <div class="card-body text-primary">
-                    <h5 class="card-title">Primary card title</h5>
-                    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <div class="card-header">...Author: Cristian Checa</div>
+                <div class="card-body">
+                    <h5 class="card-title">Nombre Entrada</h5>
+                    <p class="card-text"><span class="badge badge-secondary"> Estado </span> Ultima Actualizacion: 30/10/2021</p>
+                    <p class="card-text">
+                        <a href="#" class="mr-3">
+                            <i class="fa fa-eye" aria-hidden="true"></i> {numero de} vistas 
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-comment" aria-hidden="true"></i> {numero de} comentarios
+                        </a>
+                    </p>
                 </div>
             </div>
         </div>
