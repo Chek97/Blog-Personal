@@ -8,23 +8,29 @@
 
 <body>
     <?php require_once('./navbar.php'); ?>
-    <div class="container">
+    <div class="container" style="height: 500px;">
         <header>
             <h1>Estadisticas</h1>
         </header>
-        <div>
+        <div class="m-3">
             <ul class="list-group">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    A list item
-                    <span class="badge badge-primary badge-pill">14</span>
+                    <div>
+                        <i class="fas fa-pen"></i> Numero de Entradas
+                    </div>
+                    <span class="badge badge-primary badge-pill">{numero}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    A second list item
-                    <span class="badge badge-primary badge-pill">2</span>
+                    <div>
+                        <i class="fa fa-comment" aria-hidden="true"></i> Comentarios Realizados
+                    </div>
+                    <span class="badge badge-primary badge-pill">{numero}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    A third list item
-                    <span class="badge badge-primary badge-pill">1</span>
+                    <div>
+                        <i class="fa fa-eye" aria-hidden="true"></i> Visitas Totales
+                    </div>
+                    <span class="badge badge-primary badge-pill">{numero}</span>
                 </li>
             </ul>
         </div>
