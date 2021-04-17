@@ -12,26 +12,21 @@
         <header>
             <h1>COMENTARIOS</h1>
         </header>
-        <div>
+        <?php 
+            //si no hay entradas colocar alerta que no hay cartas
+        ?>
+        <div class="alert alert-message m-5 pt-5 pb-5" role="alert">
+            <strong>No hay comentarios todavia</strong>
+        </div>
+        <div class="m-3">
             <div class="card mb-5">
                 <div class="card-header">
-                    Quote
+                    {{Author}} ha comentado en {{nombreEntrada}}
                 </div>
                 <div class="card-body">
                     <blockquote class="blockquote mb-0">
                         <p>A well-known quote, contained in a blockquote element.</p>
-                        <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-                    </blockquote>
-                </div>
-            </div>
-            <div class="card mb-5">
-                <div class="card-header">
-                    Quote
-                </div>
-                <div class="card-body">
-                    <blockquote class="blockquote mb-0">
-                        <p>A well-known quote, contained in a blockquote element.</p>
-                        <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                        <footer class="blockquote-footer">Comentado el<cite title="Source Title"> 16 abr 2021</cite></footer>
                     </blockquote>
                 </div>
             </div>
