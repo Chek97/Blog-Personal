@@ -1,0 +1,23 @@
+.landing-body {
+    background-image: url('../img/background.webp');
+}
+
+.landing-header {
+    padding: 10px 15% 10px 15%;
+}
+
+.landing-header > h1 {
+    font-weight: 700;
+}
+
+.alert-message {
+    background-color: rgb(113, 147, 248);
+    color: white;
+    font-size: 40px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.body-entry {
+    height: 100%;
+}

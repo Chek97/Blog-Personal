@@ -1,0 +1,26 @@
+/* -----------------NAVBAR---------------------*/
+.icon-image {
+    width: 40px;
+    height: 40px;
+    background-color: white;
+}
+
+.com-bar {
+    background-color: royalblue;
+}
+
+/* -----------------FOOTER---------------------*/
+.big-footer {
+    background-color: rgb(35, 63, 150);
+    color: white;
+}
+
+.small-footer {
+    background-color: royalblue;
+    color: white;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+}
