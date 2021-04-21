@@ -1,1 +1,1 @@
-<?php header('location: ./view/Main/landingPage.php?p=inicio');?>
+<?php header('location: ./view/Main/landingPage.php?');?>
