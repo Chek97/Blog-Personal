@@ -1,7 +1,6 @@
 <?php 
-
-    //include_once('../config/config.php');
     include('../../config/config.php');
+    
     class Conection {
 
         public static function conect(){
@@ -15,6 +14,7 @@
 
             }catch(Exception $e){
                 die('Error en la conexion ' . $e->getMessage());
+                exit;
             }
         }
     }
