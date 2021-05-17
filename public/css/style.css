@@ -1,23 +1,60 @@
-.landing-body {
-    background-image: url('../img/background.webp');
-}
+/* *********************** */
+/*          HEADER         */
+/* *********************** */
 
 .landing-header {
-    padding: 10px 15% 10px 15%;
+    /* padding: 10px 15% 10px 15%; */
+    margin-bottom: 2em;
 }
 
 .landing-header > h1 {
     font-weight: 700;
 }
 
-.alert-message {
-    background-color: rgb(113, 147, 248);
-    color: white;
-    font-size: 40px;
-    text-align: center;
-    border-radius: 10px;
+.landing-header > P {
+    font-size: 1.5rem;
 }
+
+/* *********************** */
+/*          BODY         */
+/* *********************** */
 
 .body-entry {
     height: 100%;
+}
+
+.landing-body {
+    /* background-image: url('../img/book-background.jpg'); */
+    background-color: rgb(241, 239, 239);
+}
+
+.image-card-custom {
+    border: none;
+}
+
+.card-body-custom {
+    background-color: #000051;
+    color: white;
+    border-radius: 40px 5px;
+}
+
+.card-body > h2 {
+    font-weight: 800;
+    font-size: 2.5rem;
+}
+
+.card-body > p {
+    font-size: 1.5rem;
+    text-align: justify;
+}
+
+.card-full {
+    border-radius: 20px;
+}
+
+.icon-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    font-size: 1.5em;
 }

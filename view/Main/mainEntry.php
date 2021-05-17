@@ -11,9 +11,16 @@
         $objEntry = new EntryActions(); 
     ?>
     <div class="container">
-        <header>
-            <h1>ENTRADAS CREADAS</h1>
-        </header>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-lg-12">
+                <header>
+                    <h1>ENTRADAS CREADAS</h1>
+                </header>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-lg-12">
+
+            </div>
+        </div>
         <?php 
             //si no hay entradas colocar alerta que no hay cartas
             if($objEntry->getEntrys() == false){
