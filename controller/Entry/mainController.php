@@ -1,13 +1,13 @@
 <?php
     //IMPORTS
-    require('../../model/conection.php');
-
-
+    require_once('../../model/conection.php');
+    
+    
     //Class controller
     class EntryActions {
-
+        
         private $db;
-
+        
         public function __construct(){
             $this->db = Conection::conect();
         }
@@ -58,5 +58,4 @@
                 break;
         }
     }
-
 ?>

@@ -1,12 +1,11 @@
 <?php
 
-    //require('../../model/conection.php'); tal vez no sea necesario
-
-    class ElementActions{
+class ElementActions{
 
         private $db;
 
         public function __construct(){
+            require_once('../../model/conection.php');
             $this->db = Conection::conect();
         }
 
@@ -36,6 +35,47 @@
             }
             return $list;
         }
+
+        public function updateElements($data, $id){
+            //ACtualizacion del titulo de la entrada
+            $consult1 = $this->db->query("UPDATE entrada SET titulo = '" . $data['title'] . "' WHERE id= $id");
+            //AJUSTAR PARA QUE NO TOME EL ERROR
+            if($consult1->rowCount()){
+                echo('Se actualizo la entrada');
+            }else{
+                echo('La entrada no se actualizo correctamente <br>');
+            }
+            //-----------------------------------------------------------
+            $flag = false;
+            //Verificamos si hay elementos encabezados, si los hay actualizarlos
+            if(isset($data['head'])){
+                foreach ($data['head'] as $head) {    
+                    $consult2 = $this->db->query("UPDATE elemento SET valor='" . $data['headtit'][$head] . "' WHERE id=" . $data['head'][$head]);
+                    //AJUSTAR PARA QUE NO TOME EL ERROR
+                    if($consult2->rowCount() > 1){
+                        $flag = true;
+                    }else{
+                        $flag = false;
+                    }
+                    //-----------------------------------------------------------
+                }
+            }
+            $flag1 = false;
+            //Verificamos los elementos de parrafos
+            if(isset($data['parraf'])){
+                foreach ($data['parraf'] as $parraf) {
+                    echo($data['parraf'][$parraf]);
+                    echo($data['parraftit'][$parraf]);
+                    $consult3 = $this->db->query("UPDATE elemento SET valor='" . $data['parraftit'][$parraf] . "' WHERE id=" . $data['parraf'][$parraf]);
+                    if($consult3->rowCount() > 1){
+                        $flag = true;
+                    }else{
+                        $flage = false;
+                    }
+                }
+            }
+            header('location: ../../view/Main/createEntry.php');
+        }
     }
 
     if(isset($_GET['q'])){
@@ -46,11 +86,12 @@
             case 'create':
                 $element->createElement();
                 break;
+            case 'update':
+                $element->updateElements($_POST, $_POST['id']);
+                break;
             default:
                 echo('No es una accion valida');
                 break;
         }
     }
-
-
 ?>

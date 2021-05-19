@@ -16,24 +16,30 @@
 
     $entry = $objEntry->getEntry(1);
     $elements = $objElement->getElements($entry['id']);
-    print_r($elements);
+
     ?>
     <div class="container m-3">
         <header>
             <h1>EDITAR ENTRADA</h1>
         </header>
-        <form action="#" method="POST">
+        <form action="../../controller/Element/elementController.php?q=update" method="POST"><!-- crear la actualizacion multiple -->
             <div class="form-group">
                 <label for="title">Titulo:</label>
                 <input type="hidden" name="id" id="title" class="form-control" value="<?php echo ($entry['id']); ?>">
                 <input type="text" name="title" id="title" class="form-control" value="<?php echo ($entry['titulo']); ?>">
                 <small id="helpId" class="text-muted">Nombre de la entrada</small>
-                <!-- Crear interfaz para agregar elementos a la entrada -->
-
-                <!--
-                    AQUI VAN LOS ELEMENTOS QUE YA ESTAN ALMACENADOS EN LA BD
-               -->
             </div>
+            <!-- Crear interfaz para agregar elementos a la entrada -->
+            <!--
+                AQUI VAN LOS ELEMENTOS QUE YA ESTAN ALMACENADOS EN LA BD
+           -->
+                <?php 
+                    include_once('../Shared/entryElements.php');
+                ?>
+                <br>
+                <button class="btn btn-success" type="submit">
+                    Actualizar <i class="fa fa-upload" aria-hidden="true"></i>
+                </button>
         </form>
         <form action="../../controller/Element/elementController.php?q=create" method="POST">
                 <div class="form-group">
@@ -53,8 +59,6 @@
                     </button>
                 </div>
         </form>
-    </div>
-    <div class="container">
     </div>
 </body>
 
