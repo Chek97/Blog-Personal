@@ -3,11 +3,12 @@
   <div class="container p-4">
     <div class="row footer-content" style="display: flex; justify-content: space-around;">
       <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-        <h5 class="text-uppercase">SOBRE EL DESARROLLO</h5>
-        <p>
-          Este es una aplicacion de un blog unico donde el usuario podra crear entradas
-          y recibir comentarios y sus estadisticas de vistas.
-        </p>
+        <h5 class="text-uppercase">SOBRE NOSOTROS: </h5>
+        <ul class="list-unstyled" style="text-align: justify;">
+          <li><a href="#" class="text-light">FAQ</a></li>
+          <li><a href="#" class="text-light">Sobre el desarrollo</a></li>
+          <li><a href="#" class="text-light">Terminos del servicio</a></li>
+        </ul>
       </div>
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
         <h5 class="text-uppercase">Sigueme en: </h5>
