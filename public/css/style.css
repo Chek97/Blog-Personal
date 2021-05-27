@@ -25,3 +25,48 @@
 .elements-section {
     border: 2px solid black;
 }
+
+/* **************************** */
+/*             FAQs             */
+/* **************************** */
+
+.questions-list {
+    padding: 10px;
+}
+
+.question {
+    padding: 1.5em 0 10px 0;
+}
+
+.line-question {
+    background-color: #000;
+    padding: 2px;
+}
+
+/* **************************** */
+/*           ABOUT ME           */
+/* **************************** */
+
+.about-content {
+    width: 100vw;
+    height: 500px;
+}
+
+.img-about-custom {
+    width: 200px;
+    height: 200px;
+}
+
+.img-about-custom > img {
+    width: 100%;
+    height: 100%;
+}
+
+/* **************************** */
+/*           TERMS OF SERVICE   */
+/* **************************** */
+
+.terms-space {
+    width: 100vw;
+    height: 500px;
+}

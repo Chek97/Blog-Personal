@@ -11,16 +11,32 @@
 
 /* -----------------FOOTER---------------------*/
 .big-footer {
-    background-color: rgb(35, 63, 150);
-    color: white;
-}
-
-.small-footer {
-    background-color: royalblue;
-    color: white;
+    background-color: #1895E1;
+    color: #000;
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
+}
+
+.small-footer {
+    background-color: #1874E1;
+    color: white;
+}
+
+.about-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.about-list-item > a {
+    color: #000;
+    text-decoration: none;
+}
+
+.about-list-item > a:hover {
+    color: #fff;
 }

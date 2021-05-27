@@ -6,16 +6,17 @@
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="./landingPage.php">Inicio</a>
+        <a class="nav-link" href="../Main/landingPage.php">Inicio</a>
+        <!-- AVERIGUAR PORQUE OCURRE ESTO -->
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./mainEntry.php">Entradas</a>
+        <a class="nav-link" href="../Main/mainEntry.php">Entradas</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./stadisticsPage.php">Estadisticas</a>
+        <a class="nav-link" href="../Main/stadisticsPage.php">Estadisticas</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="./commentsPage.php">Comentarios</a>
+        <a class="nav-link" href="../Main/commentsPage.php">Comentarios</a>
       </li>
     </ul>
   </div>
