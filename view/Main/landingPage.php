@@ -39,7 +39,7 @@
             <div class="col-xs-12 col-sm-12 col-lg-12">
                 <div class="card mb-3 card-full">
                     <div class="row no-gutters">
-                        <div class="col-xs-12 col-md-8 card-body-custom">
+                        <div class="col-xs-12 col-md-8 card-body-custom-left">
                             <div class="card-body">
                                 <h2 class="card-title">Gana Dinero</h2>
                                 <p class="card-text">

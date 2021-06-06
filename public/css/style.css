@@ -9,10 +9,12 @@
 
 .landing-header > h1 {
     font-weight: 700;
+    color: #1895E1;
 }
 
-.landing-header > P {
+.landing-header > p {
     font-size: 1.5rem;
+    color: #1895E1 !important;
 }
 
 /* *********************** */
@@ -33,9 +35,17 @@
 }
 
 .card-body-custom {
-    background-color: #000051;
+    background-color: #187AE1;
     color: white;
-    border-radius: 5px;
+    border-top-right-radius: 22px;
+    border-bottom-right-radius: 22px;
+}
+
+.card-body-custom-left {
+    background-color: #187AE1;
+    color: white;
+    border-top-left-radius: 22px;
+    border-bottom-left-radius: 22px;
 }
 
 .card-body > h2 {
@@ -47,7 +57,8 @@
 }
 
 .card-full {
-    border-radius: 20px;
+    border-radius: 25px;
+    border: 2px solid gray;
 }
 
 .icon-list {
