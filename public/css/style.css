@@ -3,7 +3,6 @@
 /* *********************** */
 
 .landing-header {
-    /* padding: 10px 15% 10px 15%; */
     margin-bottom: 2em;
 }
 
@@ -17,6 +16,16 @@
     color: #1895E1 !important;
 }
 
+.header-default {
+    text-align: center;
+    margin: 2em;
+}
+
+.header-default > h1 {
+    font-weight: 700;
+    color: #187AE1;
+}
+
 /* *********************** */
 /*          BODY         */
 /* *********************** */
@@ -26,7 +35,6 @@
 }
 
 .landing-body {
-    /* background-image: url('../img/book-background.jpg'); */
     background-color: rgb(241, 239, 239);
 }
 

@@ -10,10 +10,10 @@
         require_once('../../controller/mainController.php');
         $objEntry = new EntryActions(); 
     ?>
-    <div class="container">
+    <div class="container" style="height: 500px;">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-lg-12">
-                <header>
+                <header class="header-default">
                     <h1>ENTRADAS CREADAS</h1>
                 </header>
             </div>

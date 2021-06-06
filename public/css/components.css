@@ -9,7 +9,6 @@
 }
 
 .nav-item:hover {
-    /* background-color: #187AE1; */
     background-color: #0d669e;
     color: #FFFF;
 }
@@ -52,9 +51,22 @@
 /* -----------------MESSAGES---------------------*/
 
 .alert-message {
-    background-color: rgb(113, 147, 248);
-    color: white;
+    background-color: #6dc6fd;
+    color: rgb(209, 208, 208);
     font-size: 40px;
     text-align: center;
     border-radius: 10px;
+}
+
+/* -----------------BADGES-----------------------*/
+
+.custom-badge {
+    background-color: #1895E1;
+    color: #FFFF;
+}
+
+.custom-badge:hover {
+    background-color: #187AE1;
+    color: #000;
+    cursor: pointer;
 }
