@@ -1,26 +1,78 @@
 /* -----------------NAVBAR---------------------*/
 .icon-image {
-    width: 40px;
-    height: 40px;
-    background-color: white;
+    width: 46px;
+    height: 46px;
+}
+
+.title-navbar, .nav-link {
+    font-weight: 700;
+}
+
+.nav-item:hover {
+    background-color: #0d669e;
+    color: #FFFF;
 }
 
 .com-bar {
-    background-color: royalblue;
+    background-color: #1895E1;
 }
 
 /* -----------------FOOTER---------------------*/
 .big-footer {
-    background-color: rgb(35, 63, 150);
+    background-color: #1895E1;
     color: white;
 }
 
+.footer-title {
+    font-weight: 700;
+}
+
+.custom-list-about {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.custom-list-about > li {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
 .small-footer {
-    background-color: royalblue;
+    background-color: #187AE1;
     color: white;
 }
 
 .footer-content {
     display: flex;
     justify-content: space-between;
+}
+
+/* -----------------MESSAGES---------------------*/
+
+.alert-message {
+    background-color: #6dc6fd;
+    color: rgb(209, 208, 208);
+    font-size: 40px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+/* -----------------BADGES-----------------------*/
+
+.custom-badge {
+    background-color: #1895E1;
+    color: #FFFF;
+}
+
+.custom-badge:hover {
+    background-color: #187AE1;
+    color: #000;
+    cursor: pointer;
+}
+
+/* -----------------COMPONENTS--------------------*/
+
+.elements-section {
+    border: 2px solid black;
 }

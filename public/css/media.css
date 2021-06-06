@@ -1,0 +1,9 @@
+@media (max-width: 746px){
+    .image-card-custom{
+        width: 150px;
+        height: 150px;
+        display: block;
+        margin: auto;
+        padding: 0;
+    }
+}
