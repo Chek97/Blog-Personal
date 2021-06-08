@@ -5,9 +5,9 @@
       <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
         <h5 class="text-uppercase footer-title mb-3">SOBRE NOSOTROS: </h5>
         <ul class="list-unstyled custom-list-about" style="text-align: justify;">
-          <li><a href="#" class="text-light">FAQ</a></li>
-          <li><a href="#" class="text-light">Sobre el desarrollo</a></li>
-          <li><a href="#" class="text-light">Terminos del servicio</a></li>
+          <li><a href="../Shared/FAQ.php">FAQ</a></li>
+          <li><a href="../Shared/about.php">Sobre mi</a></li>
+          <li><a href="../Shared/termServices.php">Terminos de servicio</a></li>
         </ul>
       </div>
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
