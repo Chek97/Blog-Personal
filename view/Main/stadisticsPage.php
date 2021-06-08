@@ -7,7 +7,15 @@
 </head>
 
 <body>
-    <?php require_once('./navbar.php'); ?>
+    <?php 
+        require_once('./navbar.php'); 
+        require_once('../../controller/Entry/mainController.php');
+        require_once('../../controller/Comment/commentsController.php');
+        $objEntry = new EntryActions();
+        $objComment = new CommentActions();
+
+        
+    ?>
     <div class="container" style="height: 500px;">
         <header class="header-default">
             <h1>Estadisticas</h1>
@@ -18,7 +26,7 @@
                     <div>
                         <i class="fas fa-pen"></i> Numero de Entradas
                     </div>
-                    <span class="badge custom-badge badge-pill">{numero}</span>
+                    <span class="badge badge-primary badge-pill"><?php echo($objEntry->getEntryCount(1)); ?></span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <div>

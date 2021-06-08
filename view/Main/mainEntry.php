@@ -10,9 +10,11 @@
     <?php
     require_once('./navbar.php');
     require_once('../../controller/Entry/mainController.php');
+    require_once('../../controller/Comment/commentsController.php');
     $objEntry = new EntryActions();
+    $objComm = new CommentActions();
     ?>
-    <div class="container" style="height: 500px;">
+    <div class="container">
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-lg-12">
                 <header class="header-default">
@@ -25,32 +27,35 @@
         </div>
         <?php 
             //si no hay entradas colocar alerta que no hay cartas
-            if($objEntry->getEntrys() == false){
+            $entrys = $objEntry->getEntrys();
+            if($entrys == false){
         ?>
             <div class="alert alert-message m-5 pt-5 pb-5" role="alert">
                 <strong>No hay entradas todavia</strong>
             </div>
         <?php
         } else {
+            foreach ($entrys as $entry){
+                $comments = $objComm->getCommentsCount($entry['id']);
         ?>
             <div class="body-entry mb-5">
                 <div class="card border-primary mt-3">
-                    <div class="card-header">...Author: Cristian Checa</div>
+                    <div class="card-header"><i class="fa fa-user" aria-hidden="true"></i> Autor: <strong> Cristian Checa</strong></div><!-- ASPECTO DE ESTE NOMBRE -->
                     <div class="card-body">
-                        <h5 class="card-title">Nombre Entrada</h5>
-                        <p class="card-text"><span class="badge badge-secondary"> Estado </span> Ultima Actualizacion: 30/10/2021</p>
+                        <h5 class="card-title"><?php echo($entry['titulo']); ?></h5>
+                        <p class="card-text"><span class="<?php echo($entry['activo'] == 1 ? 'badge badge-primary' : 'badge badge-secondary'); ?>"> <?php echo($entry['activo'] == 1 ? 'publicado' : 'borrador'); ?>
+                        </span> Ultima Actualizacion: <?php echo($entry['fecha']); ?></p>
                         <p class="card-text">
-                            <a href="#" class="mr-3">
-                                <i class="fa fa-eye" aria-hidden="true"></i> {numero de} vistas
-                            </a>
-                            <a href="#">
-                                <i class="fa fa-comment" aria-hidden="true"></i> {numero de} comentarios
+                            <i class="fa fa-eye" aria-hidden="true"></i> <?php echo($entry['vistas']); ?> visitas
+                            <a href="./commentsPage.php?q=<?php echo($entry['id']); ?>">
+                                <i class="fa fa-comment" aria-hidden="true"></i> <?php echo($comments); ?> comentarios
                             </a>
                         </p>
                     </div>
                 </div>
             </div>
         <?php
+            }
         }
         ?>
         <div class="m-5 text-center">

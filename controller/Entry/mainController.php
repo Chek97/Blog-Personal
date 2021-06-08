@@ -16,7 +16,11 @@
             $consult = $this->db->query("SELECT * FROM entrada");
 
             if($consult->rowCount() > 0){
-                return true;
+                $list = array();
+                while ($row = $consult->fetch(PDO::FETCH_ASSOC)) {
+                   $list[] = $row;
+                }
+                return $list;
             }else{
                 return false;
             }
@@ -40,6 +44,13 @@
                 $result = $consult->fetch();
                 return $result;
             }
+        }
+
+        public function getEntryCount($id){
+            $consult = $this->db->query("SELECT COUNT(*) FROM entrada WHERE autor_id = $id");
+            
+            $result = $consult->fetch();
+            return $result[0];
         }
     }
 
