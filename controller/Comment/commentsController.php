@@ -21,7 +21,7 @@
 
         //obtener el numero de entradas del autor y sacar los comentarios
 
-        public function getComments($id = 0){
+        public function getComments($id = 0){//mejorar la recursividad en este metodo
             $result = array();
             if($id == 0){
                 $consult = $this->db->query("SELECT * FROM comentario");
