@@ -15,12 +15,20 @@
     $objComm = new CommentActions();
     ?>
     <div class="container">
-        <header>
-            <h1>ENTRADAS CREADAS</h1>
-        </header>
-        <?php
-        $entrys = $objEntry->getEntrys();
-        if ($entrys == false) {
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-lg-12">
+                <header class="header-default">
+                    <h1>ENTRADAS CREADAS</h1>
+                </header>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-lg-12">
+
+            </div>
+        </div>
+        <?php 
+            //si no hay entradas colocar alerta que no hay cartas
+            $entrys = $objEntry->getEntrys();
+            if($entrys == false){
         ?>
             <div class="alert alert-message m-5 pt-5 pb-5" role="alert">
                 <strong>No hay entradas todavia</strong>

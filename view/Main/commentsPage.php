@@ -12,8 +12,8 @@
         require_once('../../controller/Comment/commentsController.php');
         $objCom = new CommentActions();
     ?>
-    <div class="container">
-        <header>
+    <div class="container" style="height: 500px;">
+        <header class="header-default">
             <h1>COMENTARIOS</h1>
         </header>
         <?php
