@@ -42,7 +42,7 @@
                 <div class="card border-primary mt-3">
                     <div class="card-header"><i class="fa fa-user" aria-hidden="true"></i> Autor: <strong> Cristian Checa</strong></div><!-- ASPECTO DE ESTE NOMBRE -->
                     <div class="card-body">
-                        <h5 class="card-title"><?php echo($entry['titulo']); ?></h5>
+                        <h5 class="card-title"><a href="./createEntry.php?entry=<?php echo($entry['id']); ?>"><?php echo($entry['titulo']); ?></a></h5>
                         <p class="card-text"><span class="<?php echo($entry['activo'] == 1 ? 'badge badge-primary' : 'badge badge-secondary'); ?>"> <?php echo($entry['activo'] == 1 ? 'publicado' : 'borrador'); ?>
                         </span> Ultima Actualizacion: <?php echo($entry['fecha']); ?></p>
                         <p class="card-text">

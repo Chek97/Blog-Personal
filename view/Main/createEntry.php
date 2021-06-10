@@ -14,12 +14,17 @@
     $objEntry = new EntryActions();
     $objElement = new ElementActions();
 
-    $entry = $objEntry->getEntry(1);
+    if(isset($_GET['entry'])){
+        $entry = $objEntry->getEntry($_GET['entry']);
+    }else{
+        $entry = $objEntry->getEntry(1);
+    }
+
     $elements = $objElement->getElements($entry['id']);
 
     ?>
     <div class="container m-3">
-        <header>
+        <header class="header-default">
             <h1>EDITAR ENTRADA</h1>
         </header>
         <form action="../../controller/Element/elementController.php?q=update" method="POST"><!-- crear la actualizacion multiple -->
@@ -29,17 +34,16 @@
                 <input type="text" name="title" id="title" class="form-control" value="<?php echo ($entry['titulo']); ?>">
                 <small id="helpId" class="text-muted">Nombre de la entrada</small>
             </div>
-            <!-- Crear interfaz para agregar elementos a la entrada -->
-            <!--
-                AQUI VAN LOS ELEMENTOS QUE YA ESTAN ALMACENADOS EN LA BD
-           -->
-                <?php 
-                    include_once('../Shared/entryElements.php');
-                ?>
-                <br>
+            <?php 
+                include_once('../Shared/entryElements.php');
+            ?>
+            <br>
+            <div class="options-buttons text-center">
+                <a href="./previewView.php?id=<?php echo($entry['id']); ?>" target="_blank">Ver Entrada</a>
                 <button class="btn btn-success" type="submit">
                     Actualizar <i class="fa fa-upload" aria-hidden="true"></i>
                 </button>
+            </div>
         </form>
         <form action="../../controller/Element/elementController.php?q=create" method="POST">
                 <div class="form-group">
@@ -60,6 +64,10 @@
                 </div>
         </form>
     </div>
+    <?php
+        include('./foot.php');
+        include_once('../footer.php');
+    ?>
 </body>
 
 </html>

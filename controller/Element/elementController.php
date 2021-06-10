@@ -20,7 +20,7 @@ class ElementActions{
             $consult = $this->db->query("INSERT INTO elemento VALUES(NULL, '$type', ''," . $_POST['id'] . ")");
 
             if($consult->rowCount() > 0){
-                header('location: ../../view/Main/createEntry.php');
+                header('location: ../../view/Main/createEntry.php?entry=' . $_POST['id']);
             }else{
                 //crear la session error
                 echo("No se pudo crear el elemento");
@@ -74,7 +74,7 @@ class ElementActions{
                     }
                 }
             }
-            header('location: ../../view/Main/createEntry.php');
+            header('location: ../../view/Main/createEntry.php?entry=' . $id);
         }
     }
 

@@ -1,4 +1,4 @@
-<div class="p-3 elements-section">
+<div class="p-3">
     <?php 
         if(count($elements) > 0){
             $counter = 1;
