@@ -76,7 +76,21 @@ class ElementActions{
             }
             header('location: ../../view/Main/createEntry.php?entry=' . $id);
         }
+        
+        public function deleteElement($id){
+            $consult1 = $this->db->query("SELECT entrada_id FROM elemento WHERE id=$id");
+            $entrada_id = $consult1->fetch(PDO::FETCH_ASSOC);
+            
+            $consult2 = $this->db->query("DELETE FROM elemento WHERE id=$id");
+
+            if($consult2->rowCount()){
+                header('location: ../../view/Main/createEntry.php?entry=' . $entrada_id['entrada_id']);
+            }else{
+                echo('No fue posible borrar el elemento');
+            }
+        }
     }
+
 
     if(isset($_GET['q'])){
 
@@ -88,6 +102,9 @@ class ElementActions{
                 break;
             case 'update':
                 $element->updateElements($_POST, $_POST['id']);
+                break;
+            case 'delete':
+                $element->deleteElement($_GET['id']);
                 break;
             default:
                 echo('No es una accion valida');
