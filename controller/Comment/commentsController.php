@@ -12,9 +12,14 @@
         }
 
         //Get count of comments per entry
-        public function getCommentsCount($entryId){
-            $consult = $this->db->query("SELECT COUNT(*) FROM comentario WHERE entrada_id = $entryId");
-            $result = $consult->fetch();
+        public function getCommentsCount($entryId = 0){
+            if($entryId == 0){
+                $consult = $this->db->query("SELECT COUNT(*) FROM comentario");
+                $result = $consult->fetch();
+            }else{
+                $consult = $this->db->query("SELECT COUNT(*) FROM comentario WHERE entrada_id = $entryId");
+                $result = $consult->fetch();
+            }
 
             return $result[0];
         }

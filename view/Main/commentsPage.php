@@ -16,7 +16,7 @@
         $objAut = new AutorActions();
         $objEntry = new EntryActions();
     ?>
-    <div class="container" style="height: 500px;">
+    <div class="container">
         <header class="header-default">
             <h1>COMENTARIOS</h1>
         </header>
