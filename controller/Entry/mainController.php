@@ -40,10 +40,12 @@
         public function getEntry($option){
             if($option == 1){
                 $consult = $this->db->query("SELECT * FROM entrada ORDER BY id DESC LIMIT 1");
-
-                $result = $consult->fetch();
-                return $result;
+            }else{
+                $consult = $this->db->query("SELECT * FROM entrada WHERE id = $option");
             }
+            
+            $result = $consult->fetch();
+            return $result;
         }
 
         public function getEntryCount($id){
