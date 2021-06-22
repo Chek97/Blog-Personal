@@ -124,3 +124,33 @@
     justify-content: space-around;
     font-size: 1.5em;
 }
+
+/* **************************** */
+/*           SHARED ELEMENTS   */
+/* **************************** */
+
+h5 > a {
+    text-decoration: none;
+}
+
+.options-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding: 10px 0 10px 0;
+}
+
+.options-buttons > a {
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.element-delete {
+    text-align: center;
+    width: 50px;
+    height: 50px;
+}
+
+.element-delete > a > i {
+    color: red;
+}

@@ -49,6 +49,7 @@
                 $result = $consult->fetch(PDO::FETCH_ASSOC);
                 return $result;                
             }
+        
         }
 
         public function getEntryCount($id){
