@@ -12,11 +12,17 @@
             $this->db = Conection::conect();
         }
 
-        //Get comments count
-        public function getCommentsCount($entryId){
-            $statement = $this->db->prepare("SELECT COUNT(*) FROM comentario WHERE entrada_id = :id");
-            $statement->execute(array(':id' => $entryId));
-            $result = $statement->fetch();
+        //Get count of comments per entry
+        public function getCommentsCount($entryId = 0){
+            if($entryId == 0){
+                $statement = $this->db->prepare("SELECT COUNT(*) FROM comentario");
+                $statement->execute(array());
+                $result = $statement->fetch();
+            }else{
+                $statement = $this->db->prepare("SELECT COUNT(*) FROM comentario WHERE entrada_id = :id");
+                $statement->execute(array(':id' => $entryId));
+                $result = $statement->fetch();
+            }
 
             return $result[0];
         }
@@ -39,6 +45,31 @@
             }else{
                 return false;
             }
+        }
+
+        public function createComment($comment){
+            $consult = $this->db->query("INSERT INTO comentario VALUES(NULL, '" . date('Y-m-d') . "', '" . $comment['value'] ."', 1, " . $comment['entry_id'] . ")");
+            if($consult->rowCount() > 0){
+                header('location: ../../view/Main/mainEntry.php');
+            }else{
+                header('location: ../../view/Main/createComment.php?entry=' . $comment['entry_id']);
+            }
+        }
+    }
+
+    //Actions
+
+    if(isset($_GET['q'])){
+
+        $action = new CommentActions();
+
+        switch ($_GET['q']) {
+            case 'create':
+                $action->createComment($_POST);
+                break;
+            default:
+                echo('No es una opcion valida');
+                break;
         }
     }
 ?>

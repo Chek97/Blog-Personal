@@ -14,7 +14,7 @@
         $objEntry = new EntryActions();
         $objComment = new CommentActions();
 
-        
+        $comments = $objComment->getCommentsCount();
     ?>
     <div class="container" style="height: 500px;">
         <header class="header-default">
@@ -32,13 +32,13 @@
                     <div>
                         <i class="fa fa-comment" aria-hidden="true"></i> Comentarios Realizados
                     </div>
-                    <span class="badge custom-badge badge-pill">{numero}</span>
+                    <span class="badge custom-badge badge-pill"><?php echo($comments); ?></span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
                     <div>
                         <i class="fa fa-eye" aria-hidden="true"></i> Visitas Totales
                     </div>
-                    <span class="badge custom-badge badge-pill">{numero}</span>
+                    <span class="badge custom-badge badge-pill"><?php echo($comments); ?></span>
                 </li>
             </ul>
         </div>

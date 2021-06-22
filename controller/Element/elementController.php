@@ -19,7 +19,6 @@ class ElementActions{
             
             $statement = $this->db->prepare("INSERT INTO elemento VALUES(NULL, :tip, :val, :ent_id)");
             $statement->execute(array(':tip' => $type, ':val' => '', ':ent_id' => $_POST['id']));
-            //$consult = $this->db->query("INSERT INTO elemento VALUES(NULL, '$type', ''," . $_POST['id'] . ")");
 
             if($statement->rowCount() > 0){
                 header('location: ../../view/Main/createEntry.php?entry=' . $_POST['id']);
@@ -32,7 +31,7 @@ class ElementActions{
         public function getElements($id){
             $statement = $this->db->prepare("SELECT * FROM elemento WHERE entrada_id = :id");
             $statement->execute(array(':id' => $id));
-            //$consult = $this->db->query("SELECT * FROM elemento WHERE entrada_id = $id");
+
             $list = array();
             while($row = $statement->fetch(PDO::FETCH_ASSOC)){
                 $list[] = $row;
@@ -44,7 +43,7 @@ class ElementActions{
             //ACtualizacion del titulo de la entrada
             $statement1 = $this->db->prepare("UPDATE entrada SET titulo = :tit WHERE id= :id");
             $statement1->execute(array(':tit' => $data['title'], ':id' => $id ));
-            //$consult1 = $this->db->query("UPDATE entrada SET titulo = '" . $data['title'] . "' WHERE id= $id");
+
             //AJUSTAR PARA QUE NO TOME EL ERROR
             if($statement1->rowCount()){
                 echo('Se actualizo la entrada');
@@ -58,7 +57,7 @@ class ElementActions{
                 foreach ($data['head'] as $head) {    
                     $statement2 = $this->db->prepare("UPDATE elemento SET valor= :val WHERE id= :id");
                     $statement2->execute(array(':val' => $data['headtit'][$head], ':id' => $data['head'][$head]));
-                    //$consult2 = $this->db->query("UPDATE elemento SET valor='" . $data['headtit'][$head] . "' WHERE id=" . $data['head'][$head]);
+
                     //AJUSTAR PARA QUE NO TOME EL ERROR
                     if($statement2->rowCount() > 1){
                         $flag = true;
@@ -76,7 +75,7 @@ class ElementActions{
                     echo($data['parraftit'][$parraf]);
                     $statement3 = $this->db->prepare("UPDATE elemento SET valor= :val WHERE id= :id");
                     $statement3->execute(array(':val' => $data['parraftit'][$parraf], ':id' => $data['parraf'][$parraf]));
-                    //$consult3 = $this->db->query("UPDATE elemento SET valor='" . $data['parraftit'][$parraf] . "' WHERE id=" . $data['parraf'][$parraf]);
+
                     if($statement3->rowCount() > 1){
                         $flag = true;
                     }else{
@@ -91,7 +90,6 @@ class ElementActions{
             $statement = $this->db->prepare("SELECT entrada_id FROM elemento WHERE id= :id");
             $statement->execute(array(':id' => $id));
 
-            //$consult1 = $this->db->query("SELECT entrada_id FROM elemento WHERE id=$id");
             $entrada_id = $statement->fetch(PDO::FETCH_ASSOC);
             
             $statement1 = $this->db->prepare("DELETE FROM elemento WHERE id= :id");

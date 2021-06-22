@@ -47,10 +47,13 @@
                         </span> Ultima Actualizacion: <?php echo($entry['fecha']); ?></p>
                         <p class="card-text">
                             <i class="fa fa-eye" aria-hidden="true"></i> <?php echo($entry['vistas']); ?> visitas
-                            <a href="./commentsPage.php?q=<?php echo($entry['id']); ?>">
+                            <a href="./commentsPage.php?id=<?php echo($entry['id']); ?>">
                                 <i class="fa fa-comment" aria-hidden="true"></i> <?php echo($comments); ?> comentarios
                             </a>
                         </p>
+                        <a href="./createComment.php?entry=<?php echo($entry['id']); ?>" role="button" class="btn btn-outline-success ml-auto">
+                            Comentar
+                        </a>
                     </div>
                 </div>
             </div>

@@ -10,15 +10,19 @@
     <?php
         require_once('./navbar.php');
         require_once('../../controller/Comment/commentsController.php');
+        require_once('../../controller/Entry/mainController.php');
+        require_once('../../controller/Author/autorController.php');
         $objCom = new CommentActions();
+        $objAut = new AutorActions();
+        $objEntry = new EntryActions();
     ?>
-    <div class="container" style="height: 500px;">
+    <div class="container">
         <header class="header-default">
             <h1>COMENTARIOS</h1>
         </header>
         <?php
-            if (isset($_GET['q'])) {
-                $listComments = $objCom->getComments($_GET['q']);
+            if (isset($_GET['id'])) {
+                $listComments = $objCom->getComments($_GET['id']);
                 if ($listComments == false) { 
         ?>
                     <div class="alert alert-message m-5 pt-5 pb-5" role="alert">
@@ -26,11 +30,13 @@
                     </div>
         <?php   }else{
                     foreach ($listComments as $comment) { 
+                        $entry = $objEntry->getEntry(2, $comment['entrada_id']);
+                        $autor = $objAut->getAuthor($comment['autor_id']);
         ?>
                         <div class="m-3">
                             <div class="card mb-5">
                                 <div class="card-header">
-                                    <?php echo($comment['autor_id']); ?> ha comentado en <?php echo($comment['entrada_id']); ?>
+                                    <?php echo($autor['nombre'] . " " . $autor['apellido']); ?> ha comentado en <?php echo($entry['titulo']); ?>
                                 </div>
                                 <div class="card-body">
                                     <blockquote class="blockquote mb-0">
@@ -51,11 +57,13 @@
                     </div>
         <?php   }else{
                     foreach ($allComments as $comment) { 
+                        $entry = $objEntry->getEntry(2, $comment['entrada_id']);
+                        $autor = $objAut->getAuthor($comment['autor_id']);
         ?>
                         <div class="m-3">
                             <div class="card mb-5">
                                 <div class="card-header">
-                                    <?php echo($comment['autor_id']); ?> ha comentado en <?php echo($comment['entrada_id']); ?>
+                                <?php echo($autor['nombre'] . " " . $autor['apellido']); ?> ha comentado en <?php echo($entry['titulo']); ?>
                                 </div>
                                 <div class="card-body">
                                     <blockquote class="blockquote mb-0">

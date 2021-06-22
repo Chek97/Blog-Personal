@@ -43,16 +43,16 @@
         }
 
         //GET THE LAST ENTRY OR ENTRY BY ID
-        public function getEntry($option){
+        public function getEntry($option, $id = ''){
             if($option == 1){
                 $statement = $this->db->prepare("SELECT * FROM entrada ORDER BY id DESC LIMIT 1");
                 $statement->execute(array());
             }else{
                 $statement = $this->db->prepare("SELECT * FROM entrada WHERE id = :id");
-                $statement->execute(array(':id' => $option));
+                $statement->execute(array(':id' => $id));
             }
             
-            $result = $statement->fetch();
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
             return $result;
         }
 
