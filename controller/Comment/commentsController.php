@@ -7,42 +7,37 @@
 
         private $db;
 
+        //CONSTRUCTOR
         public function __construct(){
             $this->db = Conection::conect();
         }
 
-        //Get count of comments per entry
+        //Get comments count
         public function getCommentsCount($entryId){
-            $consult = $this->db->query("SELECT COUNT(*) FROM comentario WHERE entrada_id = $entryId");
-            $result = $consult->fetch();
+            $statement = $this->db->prepare("SELECT COUNT(*) FROM comentario WHERE entrada_id = :id");
+            $statement->execute(array(':id' => $entryId));
+            $result = $statement->fetch();
 
             return $result[0];
         }
 
-        //obtener el numero de entradas del autor y sacar los comentarios
+        //Get Comments or Entry comments
 
-        public function getComments($id = 0){//mejorar la recursividad en este metodo
+        public function getComments($id = 0){
             $result = array();
             if($id == 0){
-                $consult = $this->db->query("SELECT * FROM comentario");
-                if($consult->rowCount() > 0){
-                    while ($row = $consult->fetch(PDO::FETCH_ASSOC)) {
-                        $result[] = $row;
-                    }
-                    return $result;
-                }else{
-                    return false;
-                }
+                $statement = $this->db->prepare("SELECT * FROM comentario");
             }else{
-                $consult = $this->db->query("SELECT * FROM comentario WHERE entrada_id=$id");
-                if($consult->rowCount() > 0){
-                    while ($row = $consult->fetch(PDO::FETCH_ASSOC)) {
-                        $result[] = $row;
-                    }
-                    return $result;
-                }else{
-                    return false;
+                $statement = $this->db->prepare("SELECT * FROM comentario WHERE entrada_id = :id");
+                $statement->execute(array(':id' => $id));
+            }
+            if($statement->rowCount() > 0){
+                while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
+                    $result[] = $row;
                 }
+                return $result;
+            }else{
+                return false;
             }
         }
     }
