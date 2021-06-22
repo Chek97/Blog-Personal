@@ -37,15 +37,19 @@
             }
         }
 
-        public function getEntry($option){
+        public function getEntry($option, $id = ''){
             if($option == 1){
                 $consult = $this->db->query("SELECT * FROM entrada ORDER BY id DESC LIMIT 1");
+
+                $result = $consult->fetch();
+                return $result;
             }else{
-                $consult = $this->db->query("SELECT * FROM entrada WHERE id = $option");
+                $consult = $this->db->query("SELECT * FROM entrada WHERE id=$id");
+
+                $result = $consult->fetch(PDO::FETCH_ASSOC);
+                return $result;                
             }
-            
-            $result = $consult->fetch();
-            return $result;
+        
         }
 
         public function getEntryCount($id){
