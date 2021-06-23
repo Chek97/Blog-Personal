@@ -3,21 +3,24 @@
     require_once('../../model/conection.php');
     
     
-    //Class controller
+    //CLASS
     class EntryActions {
         
         private $db;
         
+        //CONSTRUCTOR
         public function __construct(){
             $this->db = Conection::conect();
         }
 
+        //GET ENTRYS
         public function getEntrys(){
-            $consult = $this->db->query("SELECT * FROM entrada");
+            $statement = $this->db->prepare("SELECT * FROM entrada");
+            $statement->execute(array());
 
-            if($consult->rowCount() > 0){
+            if($statement->rowCount() > 0){
                 $list = array();
-                while ($row = $consult->fetch(PDO::FETCH_ASSOC)) {
+                while ($row = $statement->fetch(PDO::FETCH_ASSOC)) {
                    $list[] = $row;
                 }
                 return $list;
@@ -26,41 +29,44 @@
             }
         }
 
+        //CREATE NEW ENTRY
         public function newEntry(){
             $date = date('Y-m-d');
-            $consult = $this->db->query("INSERT INTO entrada VALUES(NULL, 'Sin Titulo', '" . $date . "', 0, 0, 1)");
-            //modificar la pagina de newEntry
-            if($consult->rowCount() > 0){
+            $statement = $this->db->prepare("INSERT INTO entrada VALUES(NULL, :tit, :fec, :vis, :act, :aut)");
+            $statement->execute(array(':tit' => 'Sin Titulo', ':fec' => $date, ':vis' => 0, ':act' => 0, ':aut' => 1));
+
+            if($statement->rowCount() > 0){
                 header('location: ../../view/Main/createEntry.php');
             }else{
                 header('location: ../../view/Main/mainEntry.php');
             }
         }
 
+        //GET THE LAST ENTRY OR ENTRY BY ID
         public function getEntry($option, $id = ''){
             if($option == 1){
-                $consult = $this->db->query("SELECT * FROM entrada ORDER BY id DESC LIMIT 1");
-
-                $result = $consult->fetch();
-                return $result;
+                $statement = $this->db->prepare("SELECT * FROM entrada ORDER BY id DESC LIMIT 1");
+                $statement->execute(array());
             }else{
-                $consult = $this->db->query("SELECT * FROM entrada WHERE id=$id");
-
-                $result = $consult->fetch(PDO::FETCH_ASSOC);
-                return $result;                
+                $statement = $this->db->prepare("SELECT * FROM entrada WHERE id = :id");
+                $statement->execute(array(':id' => $id));
             }
-        
+            
+            $result = $statement->fetch(PDO::FETCH_ASSOC);
+            return $result;
         }
 
+        //GET ENTRYS COUNT
         public function getEntryCount($id){
-            $consult = $this->db->query("SELECT COUNT(*) FROM entrada WHERE autor_id = $id");
+            $statement = $this->db->prepare("SELECT COUNT(*) FROM entrada WHERE autor_id = :id");
+            $statement->execute(array(':id' => $id));
             
-            $result = $consult->fetch();
+            $result = $statement->fetch();
             return $result[0];
         }
     }
 
-    //Actions
+    //ACTIONS
 
     if(isset($_GET['q'])){
 

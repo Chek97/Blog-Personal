@@ -9,10 +9,11 @@
         }
 
         public function getAuthor($id){
-            $consult = $this->db->query("SELECT * FROM autor WHERE id=$id");
+            $statement = $this->db->prepare("SELECT * FROM autor WHERE id= :id");
+            $statement->execute(array(':id' => $id));
             
-            if($consult->rowCount() > 0){
-                return $consult->fetch(PDO::FETCH_ASSOC);
+            if($statement->rowCount() > 0){
+                return $statement->fetch(PDO::FETCH_ASSOC);
             }else{
                 return false;
             }
