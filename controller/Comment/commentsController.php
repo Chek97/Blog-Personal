@@ -33,6 +33,7 @@
             $result = array();
             if($id == 0){
                 $statement = $this->db->prepare("SELECT * FROM comentario");
+                $statement->execute(array());
             }else{
                 $statement = $this->db->prepare("SELECT * FROM comentario WHERE entrada_id = :id");
                 $statement->execute(array(':id' => $id));

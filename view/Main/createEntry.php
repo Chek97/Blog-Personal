@@ -15,7 +15,7 @@
     $objElement = new ElementActions();
 
     if(isset($_GET['entry'])){
-        $entry = $objEntry->getEntry($_GET['entry']);
+        $entry = $objEntry->getEntry(2, $_GET['entry']);
     }else{
         $entry = $objEntry->getEntry(1);
     }
@@ -27,7 +27,7 @@
         <header class="header-default">
             <h1>EDITAR ENTRADA</h1>
         </header>
-        <form action="../../controller/Element/elementController.php?q=update" method="POST"><!-- crear la actualizacion multiple -->
+        <form action="../../controller/Element/elementController.php?q=update" method="POST" enctype="multipart/form-data"><!-- crear la actualizacion multiple -->
             <div class="form-group">
                 <label for="title">Titulo:</label>
                 <input type="hidden" name="id" id="title" class="form-control" value="<?php echo ($entry['id']); ?>">
