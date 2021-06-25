@@ -93,7 +93,7 @@ class ElementActions{
                         continue;
                     }else{
                         $imageName = $_FILES['imgtit']['name'][$image];
-                        $folderServer = $_SERVER['DOCUMENT_ROOT'] . '/webalizer/';
+                        $folderServer = $_SERVER['DOCUMENT_ROOT'] . '/PHP/Proyectos/Blog-Personal/public/img/';
                         move_uploaded_file($_FILES['imgtit']['tmp_name'][$image], $folderServer . $imageName);
                         $statement4 = $this->db->prepare("UPDATE elemento SET valor= :val WHERE id= :id");
                         $statement4->execute(array(':val' => $imageName, ':id' => $data['image'][$image]));
