@@ -21,7 +21,7 @@
                 $listComments = $objCom->getComments($_GET['q']);
                 if ($listComments == false) { 
         ?>
-                    <div class="alert alert-message m-5 pt-5 pb-5" role="alert">
+                    <div class="alert alert-message" role="alert">
                         <strong>No hay comentarios todavia</strong>
                     </div>
         <?php   }else{

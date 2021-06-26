@@ -158,3 +158,52 @@ h5 > a {
 .element-delete > a > i {
     color: red;
 }
+
+/* **************************** */
+/*           INPUTS             */
+/* **************************** */
+
+.text-box {
+    padding: 1em;
+}
+
+.text-box > label {
+    font-size: 18px;
+    font-weight: 600;
+    color: #1895E1;
+}
+
+.text-box > input select {
+    color: #187AE1;
+    font-weight: 600;
+}
+
+.text-box > input:focus {
+    color: #187AE1;
+}
+
+.text-box > select:focus {
+    color: #187AE1;
+}
+
+/* **************************** */
+/*           ENTRY CARD         */
+/* **************************** */
+
+.card-custom-entry {
+    background-color: #187AE1;
+    color: #ffff;
+}
+
+.card-custom-body {
+    display: flex;
+    padding: 2em;
+}
+
+.card-custom-body > h5 {
+    font-weight: 650;
+}
+
+.stats-titles {
+    padding-right: 20px;
+}

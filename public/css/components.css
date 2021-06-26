@@ -81,9 +81,10 @@
 .alert-message {
     background-color: #6dc6fd;
     color: rgb(255, 249, 249);
-    font-size: 40px;
-    text-align: center;
+    font-size: 30px;
     border-radius: 10px;
+    text-align: center;
+    padding: 20px;
 }
 
 /* -----------------BADGES-----------------------*/
@@ -94,13 +95,53 @@
 }
 
 .custom-badge:hover {
-    background-color: #187AE1;
-    color: #000;
+    text-decoration: underline;
     cursor: pointer;
 }
 
 /* -----------------COMPONENTS--------------------*/
 
-/* .elements-section {
-    
-} */
+.btn-create-entry {
+    background-color: #187AE1;
+    color: #FFFF;
+    text-decoration: none;
+}
+
+.btn-create-entry:hover {
+    color: #187AE1;
+    border-color: #187AE1;
+    background-color: #FFFF;
+}
+
+.btn-update-entry {
+    background-color: #6dc6fd;
+    color: #FFFF;
+}
+
+.btn-update-entry:hover {
+    background-color: #FFFF;
+    color: #6dc6fd;
+    border-color: #6dc6fd;
+}
+
+.btn-view-entry {
+    background-color: #187AE1;
+    color: #FFFF;
+}
+
+.btn-view-entry:hover {
+    color: #187AE1;
+    border-color: #187AE1;
+    background-color: #FFFF;
+}
+
+.btn-create-element {
+    background-color: #187AE1;
+    color: #FFFF;
+}
+
+.btn-create-element:hover {
+    color: #187AE1;
+    border-color: #187AE1;
+    background-color: #FFFF;
+}

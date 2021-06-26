@@ -14,4 +14,8 @@
     .custom-list-about {
         flex-direction: column;
     }
+
+    .btn-create-element {
+        width: 5em;
+    }
 }
