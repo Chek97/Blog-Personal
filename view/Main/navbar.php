@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-sm navbar-dark com-bar p-3">
-  <a class="navbar-brand" href="./landingPage.php">
+  <a class="navbar-brand" href="../../index.php">
     <img class="icon-image" src="../../public/img/blogger.png" width="30" height="30" class="d-inline-block align-top" alt="">
     <span class="ml-3 title-navbar">BLOG PERSONAL</span>
   </a>

@@ -7,8 +7,8 @@
 <body>
     <?php require_once('../Main/navbar.php');?>
     <div class="container-fluid m-2">
-        <header class="text-center">
-            <h1>FAQ Preguntas mas frecuentes</h1>
+        <header class="text-center header-default">
+            <h1>Preguntas mas frecuentes</h1>
         </header>
         <div class="questions-list">
             <div class="question">

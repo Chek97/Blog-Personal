@@ -43,15 +43,25 @@
 /* **************************** */
 
 .questions-list {
-    padding: 10px;
+    margin: 0;
 }
 
 .question {
     padding: 1.5em 0 10px 0;
 }
 
+.question > h2 {
+    color: #1895E1;
+    font-weight: 600;
+}
+
+.question > p {
+    color: #1895E1;
+    
+}
+
 .line-question {
-    background-color: #000;
+    background-color: #187AE1;
     padding: 2px;
 }
 
@@ -60,18 +70,24 @@
 /* **************************** */
 
 .about-content {
-    width: 100vw;
-    height: 500px;
+    text-align: justify;
+    color: #1895E1;
 }
 
 .img-about-custom {
-    width: 200px;
-    height: 200px;
+    width: 300px;
+    height: 300px;
+    margin: 0 10px 100px 0;
+    background-color:#1895E1;
+    border-radius: 25px;
 }
 
 .img-about-custom > img {
-    width: 100%;
-    height: 100%;
+    width: 90%;
+    height: 90%;
+    display: block;
+    margin: auto;
+    padding-top: 20px;
 }
 
 /* **************************** */
@@ -79,7 +95,6 @@
 /* **************************** */
 
 .terms-space {
-    width: 100vw;
     height: 500px;
 }
 

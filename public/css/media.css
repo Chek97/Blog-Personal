@@ -18,4 +18,8 @@
     .btn-create-element {
         width: 5em;
     }
+
+    .terms-space {
+        height: auto;
+    }
 }
