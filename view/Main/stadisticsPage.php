@@ -23,19 +23,19 @@
         <div class="m-3">
             <ul class="list-group" style="color: #187AE1;">
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <div>
+                    <div class="stats-titles">
                         <i class="fas fa-pen"></i> Numero de Entradas
                     </div>
-                    <span class="badge badge-primary badge-pill"><?php echo($objEntry->getEntryCount(1)); ?></span>
+                    <span class="badge custom-badge badge-pill"><?php echo($objEntry->getEntryCount(1)); ?></span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <div>
+                    <div class="stats-titles">
                         <i class="fa fa-comment" aria-hidden="true"></i> Comentarios Realizados
                     </div>
                     <span class="badge custom-badge badge-pill"><?php echo($comments); ?></span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <div>
+                    <div class="stats-titles">
                         <i class="fa fa-eye" aria-hidden="true"></i> Visitas Totales
                     </div>
                     <span class="badge custom-badge badge-pill"><?php echo($comments); ?></span>

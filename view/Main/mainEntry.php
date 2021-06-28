@@ -22,48 +22,50 @@
                 </header>
             </div>
             <div class="col-xs-12 col-sm-6 col-lg-12">
-
+                <?php 
+                    $entrys = $objEntry->getEntrys();
+                    if($entrys == false){
+                ?>
+                    <div class="alert alert-message m-5 pt-5 pb-5" role="alert">
+                        <strong>No hay entradas todavia</strong>
+                    </div>
+                <?php
+                } else {
+                ?>
+                    <div class="body-entry">
+                        <?php 
+                            foreach ($entrys as $entry){
+                                $comments = $objComm->getCommentsCount($entry['id']);
+                        ?>
+                        <div class="card border-primary mt-3">
+                            <div class="card-header card-custom-entry"><i class="fa fa-user" aria-hidden="true"></i> Autor: <strong> Cristian Checa</strong></div><!-- ASPECTO DE ESTE NOMBRE -->
+                            <div class="card-body card-custom-body row">
+                                <h5 class="card-title"><a href="./createEntry.php?entry=<?php echo($entry['id']); ?>"><?php echo($entry['titulo']); ?></a></h5>
+                                <p>Ultima Actualizacion: <?php echo($entry['fecha']); ?></p>
+                                <p class="card-text">
+                                    <i class="fa fa-eye" aria-hidden="true"></i> <?php echo($entry['vistas']); ?>
+                                    <a href="./commentsPage.php?q=<?php echo($entry['id']); ?>">
+                                        <i class="fa fa-comment" aria-hidden="true"></i> <?php echo($comments); ?>
+                                    </a>
+                                </p>
+                                <p class="card-text"><span class="<?php echo($entry['activo'] == 1 ? 'badge badge-primary' : 'badge badge-secondary'); ?>"> <?php echo($entry['activo'] == 1 ? 'publicado' : 'borrador'); ?></p>
+                                <a href="./createComment.php?entry=<?php echo($entry['id']); ?>" role="button" class="btn btn-update-entry ml-auto">
+                                    Comentar
+                                </a>
+                            </div>
+                        </div>
+                        <?php 
+                            }
+                        ?>
+                    </div>
+                <?php   
+                }
+                ?>
             </div>
         </div>
-        <?php 
-            //si no hay entradas colocar alerta que no hay cartas
-            $entrys = $objEntry->getEntrys();
-            if($entrys == false){
-        ?>
-            <div class="alert alert-message m-5 pt-5 pb-5" role="alert">
-                <strong>No hay entradas todavia</strong>
-            </div>
-        <?php
-        } else {
-            foreach ($entrys as $entry){
-                $comments = $objComm->getCommentsCount($entry['id']);
-        ?>
-            <div class="body-entry mb-5">
-                <div class="card border-primary mt-3">
-                    <div class="card-header"><i class="fa fa-user" aria-hidden="true"></i> Autor: <strong> Cristian Checa</strong></div><!-- ASPECTO DE ESTE NOMBRE -->
-                    <div class="card-body">
-                        <h5 class="card-title"><a href="./createEntry.php?entry=<?php echo($entry['id']); ?>"><?php echo($entry['titulo']); ?></a></h5>
-                        <p class="card-text"><span class="<?php echo($entry['activo'] == 1 ? 'badge badge-primary' : 'badge badge-secondary'); ?>"> <?php echo($entry['activo'] == 1 ? 'publicado' : 'borrador'); ?>
-                        </span> Ultima Actualizacion: <?php echo($entry['fecha']); ?></p>
-                        <p class="card-text">
-                            <i class="fa fa-eye" aria-hidden="true"></i> <?php echo($entry['vistas']); ?> visitas
-                            <a href="./commentsPage.php?id=<?php echo($entry['id']); ?>">
-                                <i class="fa fa-comment" aria-hidden="true"></i> <?php echo($comments); ?> comentarios
-                            </a>
-                        </p>
-                        <a href="./createComment.php?entry=<?php echo($entry['id']); ?>" role="button" class="btn btn-outline-success ml-auto">
-                            Comentar
-                        </a>
-                    </div>
-                </div>
-            </div>
-        <?php
-            }
-        }
-        ?>
         <div class="m-5 text-center">
-            <a href="../../controller/Entry/mainController.php?q=create">
-                <button type="button" class="btn btn-primary p-3"> <i class="fa fa-plus" aria-hidden="true"></i> Nueva entrada</button>
+            <a href="../../controller/Entry/mainController.php?q=create" class="btn btn-create-entry btn-block">
+                <i class="fa fa-plus" aria-hidden="true"></i> Nueva entrada
             </a>
         </div>
     </div>
