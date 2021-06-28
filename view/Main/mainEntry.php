@@ -31,36 +31,31 @@
                     </div>
                 <?php
                 } else {
-                    foreach ($entrys as $entry){
-                        $comments = $objComm->getCommentsCount($entry['id']);
                 ?>
                     <div class="body-entry">
+                        <?php 
+                            foreach ($entrys as $entry){
+                                $comments = $objComm->getCommentsCount($entry['id']);
+                        ?>
                         <div class="card border-primary mt-3">
                             <div class="card-header card-custom-entry"><i class="fa fa-user" aria-hidden="true"></i> Autor: <strong> Cristian Checa</strong></div><!-- ASPECTO DE ESTE NOMBRE -->
                             <div class="card-body card-custom-body row">
-                                    <h5 class="card-title"><a href="./createEntry.php?entry=<?php echo($entry['id']); ?>"><?php echo($entry['titulo']); ?></a></h5>
-                                    <p>Ultima Actualizacion: <?php echo($entry['fecha']); ?></p>
-                                    <p class="card-text">
+                                <h5 class="card-title"><a href="./createEntry.php?entry=<?php echo($entry['id']); ?>"><?php echo($entry['titulo']); ?></a></h5>
+                                <p>Ultima Actualizacion: <?php echo($entry['fecha']); ?></p>
+                                <p class="card-text">
                                     <i class="fa fa-eye" aria-hidden="true"></i> <?php echo($entry['vistas']); ?>
                                     <a href="./commentsPage.php?q=<?php echo($entry['id']); ?>">
                                         <i class="fa fa-comment" aria-hidden="true"></i> <?php echo($comments); ?>
                                     </a>
-                                    <p class="card-text"><span class="<?php echo($entry['activo'] == 1 ? 'badge badge-primary' : 'badge badge-secondary'); ?>"> <?php echo($entry['activo'] == 1 ? 'publicado' : 'borrador'); ?>
                                 </p>
-                                <!-- <div class="col-lg-12 col-sm-12">
-                                </span></p>
-                                <p class="card-text">
-                                    <i class="fa fa-eye" aria-hidden="true"></i> <?php echo($entry['vistas']); ?> visitas
-                                    <a href="./commentsPage.php?q=<?php echo($entry['id']); ?>">
-                                        <i class="fa fa-comment" aria-hidden="true"></i> <?php echo($comments); ?> comentarios
-                                    </a>
-                                </p>
-                                </div> -->
+                                <p class="card-text"><span class="<?php echo($entry['activo'] == 1 ? 'badge badge-primary' : 'badge badge-secondary'); ?>"> <?php echo($entry['activo'] == 1 ? 'publicado' : 'borrador'); ?></p>
                             </div>
                         </div>
+                        <?php 
+                            }
+                        ?>
                     </div>
-                <?php
-                    }
+                <?php   
                 }
                 ?>
             </div>

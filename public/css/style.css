@@ -204,6 +204,10 @@ h5 > a {
     font-weight: 650;
 }
 
+.card-custom-body > p {
+    margin: 0.5em;
+}
+
 .stats-titles {
     padding-right: 20px;
 }
