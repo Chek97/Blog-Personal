@@ -17,9 +17,10 @@ class ElementActions{
                 $type = 'parrafo';
             }
             
-            $consult = $this->db->query("INSERT INTO elemento VALUES(NULL, '$type', ''," . $_POST['id'] . ")");
+            $statement = $this->db->prepare("INSERT INTO elemento VALUES(NULL, :tip, :val, :ent_id)");
+            $statement->execute(array(':tip' => $type, ':val' => '', ':ent_id' => $_POST['id']));
 
-            if($consult->rowCount() > 0){
+            if($statement->rowCount() > 0){
                 header('location: ../../view/Main/createEntry.php?entry=' . $_POST['id']);
             }else{
                 //crear la session error
@@ -28,9 +29,11 @@ class ElementActions{
         }
 
         public function getElements($id){
-            $consult = $this->db->query("SELECT * FROM elemento WHERE entrada_id = $id");
+            $statement = $this->db->prepare("SELECT * FROM elemento WHERE entrada_id = :id");
+            $statement->execute(array(':id' => $id));
+
             $list = array();
-            while($row = $consult->fetch(PDO::FETCH_ASSOC)){
+            while($row = $statement->fetch(PDO::FETCH_ASSOC)){
                 $list[] = $row;
             }
             return $list;
@@ -38,9 +41,11 @@ class ElementActions{
 
         public function updateElements($data, $id){
             //ACtualizacion del titulo de la entrada
-            $consult1 = $this->db->query("UPDATE entrada SET titulo = '" . $data['title'] . "' WHERE id= $id");
+            $statement1 = $this->db->prepare("UPDATE entrada SET titulo = :tit WHERE id= :id");
+            $statement1->execute(array(':tit' => $data['title'], ':id' => $id ));
+
             //AJUSTAR PARA QUE NO TOME EL ERROR
-            if($consult1->rowCount()){
+            if($statement1->rowCount()){
                 echo('Se actualizo la entrada');
             }else{
                 echo('La entrada no se actualizo correctamente <br>');
@@ -50,9 +55,11 @@ class ElementActions{
             //Verificamos si hay elementos encabezados, si los hay actualizarlos
             if(isset($data['head'])){
                 foreach ($data['head'] as $head) {    
-                    $consult2 = $this->db->query("UPDATE elemento SET valor='" . $data['headtit'][$head] . "' WHERE id=" . $data['head'][$head]);
+                    $statement2 = $this->db->prepare("UPDATE elemento SET valor= :val WHERE id= :id");
+                    $statement2->execute(array(':val' => $data['headtit'][$head], ':id' => $data['head'][$head]));
+
                     //AJUSTAR PARA QUE NO TOME EL ERROR
-                    if($consult2->rowCount() > 1){
+                    if($statement2->rowCount() > 1){
                         $flag = true;
                     }else{
                         $flag = false;
@@ -66,8 +73,10 @@ class ElementActions{
                 foreach ($data['parraf'] as $parraf) {
                     echo($data['parraf'][$parraf]);
                     echo($data['parraftit'][$parraf]);
-                    $consult3 = $this->db->query("UPDATE elemento SET valor='" . $data['parraftit'][$parraf] . "' WHERE id=" . $data['parraf'][$parraf]);
-                    if($consult3->rowCount() > 1){
+                    $statement3 = $this->db->prepare("UPDATE elemento SET valor= :val WHERE id= :id");
+                    $statement3->execute(array(':val' => $data['parraftit'][$parraf], ':id' => $data['parraf'][$parraf]));
+
+                    if($statement3->rowCount() > 1){
                         $flag = true;
                     }else{
                         $flage = false;
@@ -78,12 +87,15 @@ class ElementActions{
         }
         
         public function deleteElement($id){
-            $consult1 = $this->db->query("SELECT entrada_id FROM elemento WHERE id=$id");
-            $entrada_id = $consult1->fetch(PDO::FETCH_ASSOC);
-            
-            $consult2 = $this->db->query("DELETE FROM elemento WHERE id=$id");
+            $statement = $this->db->prepare("SELECT entrada_id FROM elemento WHERE id= :id");
+            $statement->execute(array(':id' => $id));
 
-            if($consult2->rowCount()){
+            $entrada_id = $statement->fetch(PDO::FETCH_ASSOC);
+            
+            $statement1 = $this->db->prepare("DELETE FROM elemento WHERE id= :id");
+            $statement1->execute(array(':id' => $id));
+
+            if($statement1->rowCount()){
                 header('location: ../../view/Main/createEntry.php?entry=' . $entrada_id['entrada_id']);
             }else{
                 echo('No fue posible borrar el elemento');

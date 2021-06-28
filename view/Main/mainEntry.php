@@ -49,6 +49,9 @@
                                     </a>
                                 </p>
                                 <p class="card-text"><span class="<?php echo($entry['activo'] == 1 ? 'badge badge-primary' : 'badge badge-secondary'); ?>"> <?php echo($entry['activo'] == 1 ? 'publicado' : 'borrador'); ?></p>
+                                <a href="./createComment.php?entry=<?php echo($entry['id']); ?>" role="button" class="btn btn-update-entry ml-auto">
+                                    Comentar
+                                </a>
                             </div>
                         </div>
                         <?php 
