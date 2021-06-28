@@ -10,7 +10,7 @@
         $objElement = new ElementActions();
         $objComent = new CommentActions();
 
-        $entryInfo = $objEntry->getEntry($_GET['id']);//get the entry
+        $entryInfo = $objEntry->getEntry(2, $_GET['id']);//get the entry
         $elements = $objElement->getElements($entryInfo['id']);
         $comments = $objComent->getComments($entryInfo['id']);
     ?>
@@ -43,12 +43,16 @@
                     <?php foreach($elements as $element){
                         if($element['tipo'] == 'titulo'){
                             echo("<h2>" . $element['valor'] .  "</h2>");
-                        }else{
+                        }else if($element['tipo'] == 'parrafo'){
                             echo("<p>" . $element['valor'] .  "</p>");
-                        }//crear una funcion que maneje esto mejor
-                        //agregar condicionales de imagen y otros elementos    
+                        }else if($element['tipo'] == 'imagen'){ ?>
+                            <img src="../../public/img/<?php echo($element['valor']); ?>" alt="<?php echo($element['valor']); ?>">
+                <?php   }else{ ?>
+                            <video src="../../public/img/<?php echo($element['valor']); ?>" controls poster="<?php echo($element['valor']); ?>"></video>
+                    <?php
+                        }//crear una funcion que maneje esto mejor 
+                    } 
                     ?>
-                    <?php } ?>
                 </div>
             </div>
             <div class="col-lg-4 content-info">
@@ -64,6 +68,15 @@
                 ?>
                     <p>No hay comentarios todavia</p>
                 <?php
+                    }else{
+                        foreach ($comments as $comment) {
+                ?>
+                        <div>
+                            <h3><?php echo($comment['entrada_id']); ?></h3>
+                            <p><?php echo($comment['valor']); ?></p>
+                            <small><?php echo($comment['fecha']); ?></small>
+                        </div>
+                <?php   }
                     }
                 ?>
             </div>

@@ -64,6 +64,17 @@
             $result = $statement->fetch();
             return $result[0];
         }
+
+        public function updateEntryTitle($id, $title){
+            $statement = $this->db->prepare("UPDATE entrada SET titulo = :tit WHERE id= :id");
+            $statement->execute(array(':tit' => $title, ':id' => $id));
+
+            if($statement->rowCount()){
+                return true;
+            }else{
+                return false;
+            }
+        }
     }
 
     //ACTIONS
