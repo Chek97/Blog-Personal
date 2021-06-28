@@ -23,12 +23,12 @@
     $elements = $objElement->getElements($entry['id']);
 
     ?>
-    <div class="container m-3">
+    <div class="container">
         <header class="header-default">
             <h1>EDITAR ENTRADA</h1>
         </header>
-        <form action="../../controller/Element/elementController.php?q=update" method="POST" enctype="multipart/form-data"><!-- crear la actualizacion multiple -->
-            <div class="form-group">
+        <form action="../../controller/Element/elementController.php?q=update" method="POST" enctype="multipart/form-data">
+            <div class="form-group text-box">
                 <label for="title">Titulo:</label>
                 <input type="hidden" name="id" id="title" class="form-control" value="<?php echo ($entry['id']); ?>">
                 <input type="text" name="title" id="title" class="form-control" value="<?php echo ($entry['titulo']); ?>">
@@ -39,14 +39,18 @@
             ?>
             <br>
             <div class="options-buttons text-center">
-                <a href="./previewView.php?id=<?php echo($entry['id']); ?>" target="_blank">Ver Entrada</a>
-                <button class="btn btn-success" type="submit">
-                    Actualizar <i class="fa fa-upload" aria-hidden="true"></i>
+                <a type="button" 
+                    href="./previewView.php?id=<?php echo($entry['id']); ?>" 
+                    target="_blank"
+                    class="btn btn-view-entry"
+                ><i class="fa fa-eye" aria-hidden="true"></i> Ver Entrada</a>
+                <button class="btn btn-update-entry" type="submit">
+                    <i class="fa fa-upload" aria-hidden="true"></i> Actualizar
                 </button>
             </div>
         </form>
         <form action="../../controller/Element/elementController.php?q=create" method="POST">
-                <div class="form-group">
+                <div class="form-group text-box">
                     <input type="hidden" name="id" id="title" class="form-control" value="<?php echo ($entry['id']); ?>">
                     <label for="list">Agregar Elementos</label>
                     <select class="custom-select" name="list" id="list">
@@ -57,8 +61,8 @@
                         <option value="4">Video</option>
                     </select>
                 </div>
-                <div class="mt-2 text-center">
-                    <button class="btn btn-primary btn-lg" type="submit">
+                <div class="p-2 text-center">
+                    <button class="btn btn-create-element btn-lg" type="submit">
                         <i class="fa fa-plus" aria-hidden="true"></i>
                     </button>
                 </div>
