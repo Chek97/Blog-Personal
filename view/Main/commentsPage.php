@@ -43,6 +43,7 @@
                                         <p><?php echo($comment['valor']); ?></p>
                                         <footer class="blockquote-footer">Comentado el<cite title="Source Title"> <?php echo($comment['fecha']); ?><!-- 16 abr 2021 --></cite></footer>
                                     </blockquote>
+                                    <a href="./createComment.php?com=<?php echo($comment['id']); ?>" role="button" class="btn btn-update-entry ml-auto">Editar</a>
                                 </div>
                             </div>
                         </div>
@@ -68,8 +69,9 @@
                                 <div class="card-body">
                                     <blockquote class="blockquote mb-0">
                                         <p><?php echo($comment['valor']); ?></p>
-                                        <footer class="blockquote-footer">Comentado el<cite title="Source Title"> <?php echo($comment['fecha']); ?><!-- 16 abr 2021 --></cite></footer>
+                                        <footer class="blockquote-footer">Comentado el<cite title="Source Title"> <?php echo($comment['fecha']); ?></cite></footer>
                                     </blockquote>
+                                    <a href="./createComment.php?entry=<?php echo($entry['id']); ?>&com=<?php echo($comment['id']); ?>" role="button" class="btn btn-update-entry ml-auto">Editar</a>
                                 </div>
                             </div>
                         </div>
