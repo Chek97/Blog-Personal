@@ -56,6 +56,28 @@
                 header('location: ../../view/Main/createComment.php?entry=' . $comment['entry_id']);
             }
         }
+
+        public function getComment($id){
+            $statement = $this->db->prepare("SELECT id, valor FROM comentario WHERE id = :id");
+            $statement->execute(array(':id' => $id));
+
+            if($statement->rowCount() > 0){
+                return $statement->fetch();
+            }else{
+                return false;
+            }
+        }
+
+        public function updateComment($comment){
+            $statement = $this->db->prepare("UPDATE comentario SET valor = :val WHERE id = :id ");
+            $statement->execute(array(':val' => $comment['value'], 'id' => $comment['id']));
+
+            if($statement->rowCount()){
+                header('location: ../../view/Main/mainEntry.php');
+            }else{
+                header('location: ../../view/Main/mainEntry.php');
+            }
+        }
     }
 
     //Actions
@@ -67,6 +89,9 @@
         switch ($_GET['q']) {
             case 'create':
                 $action->createComment($_POST);
+                break;
+            case 'update':
+                $action->updateComment($_POST);
                 break;
             default:
                 echo('No es una opcion valida');

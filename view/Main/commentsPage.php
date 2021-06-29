@@ -35,14 +35,15 @@
         ?>
                         <div class="m-3">
                             <div class="card mb-5">
-                                <div class="card-header">
-                                    <?php echo($autor['nombre'] . " " . $autor['apellido']); ?> ha comentado en <?php echo($entry['titulo']); ?>
+                                <div class="card-header card-custom-entry">
+                                    <strong><?php echo($autor['nombre'] . " " . $autor['apellido']); ?></strong> ha comentado en <strong><?php echo($entry['titulo']); ?></strong>
                                 </div>
                                 <div class="card-body">
                                     <blockquote class="blockquote mb-0">
                                         <p><?php echo($comment['valor']); ?></p>
                                         <footer class="blockquote-footer">Comentado el<cite title="Source Title"> <?php echo($comment['fecha']); ?><!-- 16 abr 2021 --></cite></footer>
                                     </blockquote>
+                                    <a href="./createComment.php?com=<?php echo($comment['id']); ?>" role="button" class="btn btn-update-entry mt-3">Editar</a>
                                 </div>
                             </div>
                         </div>
@@ -62,14 +63,15 @@
         ?>
                         <div class="m-3">
                             <div class="card mb-5">
-                                <div class="card-header">
-                                <?php echo($autor['nombre'] . " " . $autor['apellido']); ?> ha comentado en <?php echo($entry['titulo']); ?>
+                                <div class="card-header card-custom-entry">
+                                    <strong><?php echo($autor['nombre'] . " " . $autor['apellido']); ?></strong> ha comentado en <strong><?php echo($entry['titulo']); ?></strong>
                                 </div>
                                 <div class="card-body">
                                     <blockquote class="blockquote mb-0">
                                         <p><?php echo($comment['valor']); ?></p>
-                                        <footer class="blockquote-footer">Comentado el<cite title="Source Title"> <?php echo($comment['fecha']); ?><!-- 16 abr 2021 --></cite></footer>
+                                        <footer class="blockquote-footer">Comentado el<cite title="Source Title"> <?php echo($comment['fecha']); ?></cite></footer>
                                     </blockquote>
+                                    <a href="./createComment.php?entry=<?php echo($entry['id']); ?>&com=<?php echo($comment['id']); ?>" role="button" class="btn btn-update-entry mt-3">Editar</a>
                                 </div>
                             </div>
                         </div>

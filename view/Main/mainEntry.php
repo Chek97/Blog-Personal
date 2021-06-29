@@ -44,7 +44,7 @@
                                 <p>Ultima Actualizacion: <?php echo($entry['fecha']); ?></p>
                                 <p class="card-text">
                                     <i class="fa fa-eye" aria-hidden="true"></i> <?php echo($entry['vistas']); ?>
-                                    <a href="./commentsPage.php?q=<?php echo($entry['id']); ?>">
+                                    <a href="./commentsPage.php?id=<?php echo($entry['id']); ?>">
                                         <i class="fa fa-comment" aria-hidden="true"></i> <?php echo($comments); ?>
                                     </a>
                                 </p>
