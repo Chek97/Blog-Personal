@@ -75,6 +75,22 @@
                 return false;
             }
         }
+
+        public function searchEntries($title){
+            $statement = $this->db->prepare("SELECT * FROM entrada WHERE titulo = :tit");
+            $statement->execute(array(':tit' => $title));
+
+            if($statement->rowCount() > 0){
+                $result = array();
+                while($row = $statement->fetch(PDO::FETCH_ASSOC)){
+                    $result[] = $row;
+                }
+
+                return $result;
+            }else{
+                return false;
+            }
+        }
     }
 
     //ACTIONS
@@ -87,6 +103,8 @@
             case 'create':
                 $action->newEntry();
                 break;
+            case 'search':
+                $action->searchEntries($_POST['searcEntry']);
             default:
                 echo('No es una opcion valida');
                 break;

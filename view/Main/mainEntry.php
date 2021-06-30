@@ -13,6 +13,11 @@
     require_once('../../controller/Comment/commentsController.php');
     $objEntry = new EntryActions();
     $objComm = new CommentActions();
+
+    $entrys = $objEntry->getEntrys();
+    if(isset($_POST['entry-search'])){
+        $entrys = $objEntry->searchEntries($_POST['searcEntry']);
+    }
     ?>
     <div class="container">
         <div class="row">
@@ -23,7 +28,6 @@
             </div>
             <div class="col-xs-12 col-sm-6 col-lg-12">
                 <?php 
-                    $entrys = $objEntry->getEntrys();
                     if($entrys == false){
                 ?>
                     <div class="alert alert-message m-5 pt-5 pb-5" role="alert">
@@ -32,6 +36,12 @@
                 <?php
                 } else {
                 ?>
+                    <form action="<?php $_SERVER['PHP_SELF']?>" method="POST" class="container">
+                        <div class="input-group">
+                            <input type="text" name="searcEntry" placeholder="Buscar Entrada" class="form-control">
+                            <input type="submit" name="entry-search" class="btn btn-update-entry" value="Buscar">
+                        </div>
+                    </form>
                     <div class="body-entry">
                         <?php 
                             foreach ($entrys as $entry){
