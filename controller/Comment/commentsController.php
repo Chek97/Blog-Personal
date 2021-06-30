@@ -50,11 +50,15 @@
 
         public function createComment($comment){
             $consult = $this->db->query("INSERT INTO comentario VALUES(NULL, '" . date('Y-m-d') . "', '" . $comment['value'] ."', 1, " . $comment['entry_id'] . ")");
+            session_start();
             if($consult->rowCount() > 0){
-                header('location: ../../view/Main/mainEntry.php');
+                $_SESSION['status'] = 'success';
+                $_SESSION['message'] = 'Comentario agregado con exito';
             }else{
-                header('location: ../../view/Main/createComment.php?entry=' . $comment['entry_id']);
+                $_SESSION['status'] = 'danger';
+                $_SESSION['message'] = 'El comentario no pudo ser creado';
             }
+            header('location: ../../view/Main/mainEntry.php');
         }
 
         public function getComment($id){
@@ -72,11 +76,15 @@
             $statement = $this->db->prepare("UPDATE comentario SET valor = :val WHERE id = :id ");
             $statement->execute(array(':val' => $comment['value'], 'id' => $comment['id']));
 
+            session_start();
             if($statement->rowCount()){
-                header('location: ../../view/Main/mainEntry.php');
+                $_SESSION['status'] = 'success';
+                $_SESSION['message'] = 'Comentario actualizado con exito';
             }else{
-                header('location: ../../view/Main/mainEntry.php');
+                $_SESSION['status'] = 'danger';
+                $_SESSION['message'] = 'El comentario no pudo ser actualizado';
             }
+            header('location: ../../view/Main/mainEntry.php');
         }
     }
 

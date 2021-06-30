@@ -25,12 +25,15 @@ class ElementActions{
             $statement = $this->db->prepare("INSERT INTO elemento VALUES(NULL, :tip, :val, :ent_id)");
             $statement->execute(array(':tip' => $type, ':val' => '', ':ent_id' => $_POST['id']));
 
+            session_start();
             if($statement->rowCount() > 0){
-                header('location: ../../view/Main/createEntry.php?entry=' . $_POST['id']);
+                $_SESSION['status'] = 'success';
+                $_SESSION['message'] = 'Elemento creado con exito';
             }else{
-                //crear la session error
-                echo("No se pudo crear el elemento");
+                $_SESSION['status'] = 'danger';
+                $_SESSION['message'] = 'El elemento no pudo ser creado';
             }
+            header('location: ../../view/Main/createEntry.php?entry=' . $_POST['id']);
         }
 
         public function getElements($id){
@@ -46,15 +49,11 @@ class ElementActions{
 
         public function updateElements($data, $id){
             $entryAction = new EntryActions();
-            if($entryAction->updateEntryTitle($id, $data['title'])){
-                echo('Se actualizo el titulo');
-            }else{
-                echo('El titulo no tuvo cambios<br>');
-            }
-
-
-            //-----------------------------------------------------------
+            $entryAction->updateEntryTitle($id, $data['title']);
+            session_start();
+            
             $flag = false;
+            //-----------------------------------------------------------
             //Verificamos si hay elementos encabezados, si los hay actualizarlos
             if(isset($data['head'])){
                 foreach ($data['head'] as $head) {    
@@ -62,7 +61,7 @@ class ElementActions{
                     $statement2->execute(array(':val' => $data['headtit'][$head], ':id' => $data['head'][$head]));
 
                     //AJUSTAR PARA QUE NO TOME EL ERROR
-                    if($statement2->rowCount() > 1){
+                    if($statement2->rowCount()){
                         $flag = true;
                     }else{
                         $flag = false;
@@ -70,19 +69,16 @@ class ElementActions{
                     //-----------------------------------------------------------
                 }
             }
-            $flag1 = false;
             //Verificamos los elementos de parrafos
             if(isset($data['parraf'])){
                 foreach ($data['parraf'] as $parraf) {
-                    echo($data['parraf'][$parraf]);
-                    echo($data['parraftit'][$parraf]);
                     $statement3 = $this->db->prepare("UPDATE elemento SET valor= :val WHERE id= :id");
                     $statement3->execute(array(':val' => $data['parraftit'][$parraf], ':id' => $data['parraf'][$parraf]));
 
-                    if($statement3->rowCount() > 1){
+                    if($statement3->rowCount()){
                         $flag = true;
                     }else{
-                        $flage = false;
+                        $flag = false;
                     }
                 }
             }
@@ -98,7 +94,7 @@ class ElementActions{
                         $statement4 = $this->db->prepare("UPDATE elemento SET valor= :val WHERE id= :id");
                         $statement4->execute(array(':val' => $imageName, ':id' => $data['image'][$image]));
                         
-                        if($statement4->rowCount() > 0){
+                        if($statement4->rowCount()){
                              $flag = true;                    
                         }else{
                              $flag = false;
@@ -119,7 +115,7 @@ class ElementActions{
                         $statement5 = $this->db->prepare("UPDATE elemento SET valor= :val WHERE id= :id");
                         $statement5->execute(array(':val' => $videoName, ':id' => $data['video'][$video]));
                         
-                       if($statement5->rowCount() > 0){
+                       if($statement5->rowCount()){
                             $flag = true;                    
                        }else{
                             $flag = false;
@@ -127,6 +123,14 @@ class ElementActions{
                     }
                 }
             }
+            if($flag == true){
+                $_SESSION['status'] = 'success';
+                $_SESSION['message'] = 'La entrada fue actualizada';
+            }else{
+                $_SESSION['status'] = 'danger';
+                $_SESSION['message'] = 'La entrada no fue actualizada';
+            }
+
             header('location: ../../view/Main/createEntry.php?entry=' . $id);
         }
         

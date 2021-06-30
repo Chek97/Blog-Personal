@@ -20,6 +20,20 @@
     }
     ?>
     <div class="container">
+    <?php
+        session_start(); 
+        if(isset($_SESSION['message'])){
+            echo(
+                '<div class="alert mt-2 alert-' . $_SESSION['status'] . ' alert-dismissible fade show" role="alert">
+                    ' . $_SESSION['message'] . '
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>'
+            );
+        }
+        session_destroy();   
+    ?>
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-lg-12">
                 <header class="header-default">
