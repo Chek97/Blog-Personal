@@ -4,6 +4,7 @@
         private $db;
 
         public function __construct(){
+            require_once('../../model/conection.php');
             $this->db = Conection::conect();
         }
 
@@ -11,11 +12,15 @@
             $statement = $this->db->prepare("INSERT INTO entrada_etiqueta VALUES(NULL, :ent, :has)");
             $statement->execute(array(':ent' => $hashEntry['id'], ':has' => $hashEntry['listHashtag']));
 
+            session_start();
             if($statement->rowCount() > 0){
-                header('location: ../../view/Main/mainEntry.php');
+                $_SESSION['status'] = 'success';
+                $_SESSION['message'] = 'Etiqueta agregada con exito';
             }else{
-                header('location: ../../view/Main/createEntry.php?entry=' . $hashEntry['id']);
+                $_SESSION['status'] = 'danger';
+                $_SESSION['message'] = 'No se agrego la etiqueta';
             }
+            header('location: ../../view/Main/createEntry.php?entry=' . $hashEntry['id']);
         }
 
         public function getHashtag($id){

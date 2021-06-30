@@ -43,7 +43,7 @@
                                         <p><?php echo($comment['valor']); ?></p>
                                         <footer class="blockquote-footer">Comentado el<cite title="Source Title"> <?php echo($comment['fecha']); ?><!-- 16 abr 2021 --></cite></footer>
                                     </blockquote>
-                                    <a href="./createComment.php?com=<?php echo($comment['id']); ?>" role="button" class="btn btn-update-entry mt-3">Editar</a>
+                                    <a href="./createComment.php?entry=<?php echo($entry['id']); ?>&com=<?php echo($comment['id']); ?>" role="button" class="btn btn-update-entry mt-3">Editar</a>
                                 </div>
                             </div>
                         </div>

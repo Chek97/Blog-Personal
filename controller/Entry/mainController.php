@@ -35,9 +35,14 @@
             $statement = $this->db->prepare("INSERT INTO entrada VALUES(NULL, :tit, :fec, :vis, :act, :aut)");
             $statement->execute(array(':tit' => 'Sin Titulo', ':fec' => $date, ':vis' => 0, ':act' => 0, ':aut' => 1));
 
+            session_start();
             if($statement->rowCount() > 0){
+                $_SESSION['status'] = 'success';
+                $_SESSION['message'] = 'Entrada creada con exito';
                 header('location: ../../view/Main/createEntry.php');
             }else{
+                $_SESSION['status'] = 'danger';
+                $_SESSION['message'] = 'No fue posible crear la entrada';
                 header('location: ../../view/Main/mainEntry.php');
             }
         }
