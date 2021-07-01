@@ -41,7 +41,7 @@
         <header class="header-default">
             <h1>EDITAR ENTRADA</h1>
         </header>
-        <form action="../../controller/Element/elementController.php?q=update" method="POST" enctype="multipart/form-data">
+        <form action="../../controller/Element/elementController.php?q=update" name="form-element" method="POST" enctype="multipart/form-data">
             <div class="form-group text-box">
                 <label for="title">Titulo:</label>
                 <input type="hidden" name="id" id="title" class="form-control" value="<?php echo ($entry['id']); ?>">
@@ -54,7 +54,7 @@
             <br>
             <div class="options-buttons text-center">
                 <a type="button" href="./previewView.php?id=<?php echo ($entry['id']); ?>" target="_blank" class="btn btn-view-entry"><i class="fa fa-eye" aria-hidden="true"></i> Ver Entrada</a>
-                <button class="btn btn-update-entry" type="submit">
+                <button class="btn btn-update-entry" type="submit" id="update-entry">
                     <i class="fa fa-upload" aria-hidden="true"></i> Actualizar
                 </button>
             </div>
@@ -64,7 +64,7 @@
             <div class="form-group text-box">
                 <input type="hidden" name="id" id="title" class="form-control" value="<?php echo ($entry['id']); ?>">
                 <label for="list">Agregar Elementos</label>
-                <select class="custom-select" name="list" id="list">
+                <select class="custom-select" name="list" id="element-list">
                     <option selected>Elige una opcion</option>
                     <option value="1">Encabezado</option>
                     <option value="2">Parrafo</option>
@@ -73,7 +73,7 @@
                 </select>
             </div>
             <div class="p-2 text-center">
-                <button class="btn btn-create-element btn-lg" type="submit">
+                <button class="btn btn-create-element btn-lg" id="btn-create-element" type="submit">
                     <i class="fa fa-plus" aria-hidden="true"></i>
                 </button>
             </div>

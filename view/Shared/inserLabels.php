@@ -33,7 +33,7 @@
         </select>
     </div>
     <div class="p-2 text-center">
-        <button class="btn btn-create-element btn-lg" type="submit">
+        <button class="btn btn-create-element btn-lg" id="btn-create-hashtag" type="submit">
             <i class="fa fa-plus" aria-hidden="true"></i>
         </button>
     </div>

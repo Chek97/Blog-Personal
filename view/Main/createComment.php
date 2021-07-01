@@ -37,7 +37,7 @@
             }
         ?>
         <div class="form-group">
-          <textarea class="form-control" name="value" id="value" placeholder="Escribe tu comentario aqui" rows="3">
+          <textarea class="form-control" required name="value" id="value" placeholder="Escribe tu comentario aqui" rows="3">
             <?php 
                 if(isset($infoComment)){
                     echo($infoComment['valor']);
@@ -50,7 +50,7 @@
         <div id="message-error">
 
         </div>
-        <input type="submit" id="btn-comment-submit" value="Publicar" class="btn btn-primary">
+        <input type="submit" id="btn-comment-submit" name="btn-click" value="Publicar" class="btn btn-primary">
     </form>
     <?php
         include('./foot.php');
