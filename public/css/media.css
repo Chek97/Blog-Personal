@@ -1,0 +1,25 @@
+@media (max-width: 746px){
+    .image-card-custom{
+        width: 150px;
+        height: 150px;
+        display: block;
+        margin: auto;
+        padding: 0;
+    }
+
+    .card-body-custom, .card-body-custom-left {
+        border-radius: 0 0 22px 22px;
+    }
+
+    .custom-list-about {
+        flex-direction: column;
+    }
+
+    .btn-create-element {
+        width: 5em;
+    }
+
+    .terms-space {
+        height: auto;
+    }
+}

@@ -1,0 +1,147 @@
+/* -----------------NAVBAR---------------------*/
+.icon-image {
+    width: 46px;
+    height: 46px;
+}
+
+.title-navbar, .nav-link {
+    font-weight: 700;
+}
+
+.nav-item:hover {
+    background-color: #0d669e;
+    color: #FFFF;
+}
+
+.com-bar {
+    background-color: #1895E1;
+}
+
+/* -----------------FOOTER---------------------*/
+.big-footer {
+    background-color: #1895E1;
+    color: white;
+}
+
+.footer-title {
+    font-weight: 700;
+}
+
+.custom-list-about {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    text-align: justify;
+}
+
+.custom-list-about > li {
+    padding-left: 1em;
+    padding-bottom: 0.5em;
+    font-weight: 600;
+    padding-right: 1em;
+}
+
+.custom-list-about > li > a {
+    text-decoration: none;
+    color: #FFFF;
+}
+
+.custom-list-about > li > a:hover {
+    color: #cbd3da;
+}
+
+.small-footer {
+    background-color: #187AE1;
+    color: white;
+}
+
+.about-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.about-list-item > a {
+    color: #000;
+    text-decoration: none;
+}
+
+.about-list-item > a:hover {
+    color: #fff;
+}
+
+.main-footer {
+    display: flex; 
+    justify-content: space-around;
+}
+
+/* -----------------MESSAGES---------------------*/
+
+.alert-message {
+    background-color: #6dc6fd;
+    color: rgb(255, 249, 249);
+    font-size: 30px;
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+}
+
+/* -----------------BADGES-----------------------*/
+
+.custom-badge {
+    background-color: #1895E1;
+    color: #FFFF;
+}
+
+.custom-badge:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+/* -----------------COMPONENTS--------------------*/
+
+.btn-create-entry {
+    background-color: #187AE1;
+    color: #FFFF;
+    text-decoration: none;
+}
+
+.btn-create-entry:hover {
+    color: #187AE1;
+    border-color: #187AE1;
+    background-color: #FFFF;
+}
+
+.btn-update-entry {
+    background-color: #6dc6fd;
+    color: #FFFF;
+}
+
+.btn-update-entry:hover {
+    background-color: #FFFF;
+    color: #6dc6fd;
+    border-color: #6dc6fd;
+}
+
+.btn-view-entry {
+    background-color: #187AE1;
+    color: #FFFF;
+}
+
+.btn-view-entry:hover {
+    color: #187AE1;
+    border-color: #187AE1;
+    background-color: #FFFF;
+}
+
+.btn-create-element {
+    background-color: #187AE1;
+    color: #FFFF;
+}
+
+.btn-create-element:hover {
+    color: #187AE1;
+    border-color: #187AE1;
+    background-color: #FFFF;
+}
